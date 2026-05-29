@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>CRLA Parser</title>
+
+    <style>
+
+        body{
+            font-family: Arial;
+            margin:40px;
+        }
+
+        input{
+            width:400px;
+            padding:10px;
+        }
+
+        button{
+            padding:10px 20px;
+            cursor:pointer;
+        }
+
+        .flash{
+            color:red;
+            margin-bottom:20px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<h1>CRLA 2006–2010 PDF Parser</h1>
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for msg in messages %}
+      <div class="flash">{{ msg }}</div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+<form method="POST" enctype="multipart/form-data">
+
+    <h3>Upload PDF</h3>
+
+    <input type="file" name="pdf">
+
+    <br><br>
+
+    <h3>OR Enter PDF URL</h3>
+
+    <input
+        type="text"
+        name="pdf_url"
+        placeholder="https://example.com/file.pdf"
+    >
+
+    <br><br>
+
+    <button type="submit">
+        Process PDF
+    </button>
+
+</form>
+
+</body>
+</html>
